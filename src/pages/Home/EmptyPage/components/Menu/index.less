@@ -1,0 +1,142 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 520px;
+}
+
+.sidebar {
+  width: 240px;
+  height: 520px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.308);
+
+  .headline {
+    padding: 0 24px;
+    height: 50px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    text-align: left;
+    color: #ffffffc0;
+    background-color: rgba(0, 0, 0, 0.623);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu {
+  width: 240px;
+  height: 520px;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.308);
+}
+
+.menu .headline {
+  padding: 0 24px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  text-align: left;
+  color: #ffffffc0;
+  background-color: rgba(0, 0, 0, 0.623);
+}
+
+.menu .menuitem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 50px;
+  color: #e7e7e7;
+  transition: all .2s ease-in;
+}
+
+.menu .menuitem:hover {
+  background-color: rgba(65, 65, 65, 0.432);
+}
+
+.type {
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+.content {
+  position: absolute;
+  left: 240px;
+  top: 0;
+  right: 0;
+
+  padding-top: 28px;
+  padding-left: 24px;
+  padding-right: 24px;
+  
+  height: 520px;
+  text-align: left;
+
+  background-color: rgba(255, 255, 255, 0.884);
+  color: #444444;
+  visibility: hidden;
+  overflow: hidden;
+
+  .row {
+    display: flex;
+    line-height: 2;
+  }
+
+  .title {
+    margin-right: 24px;
+    flex: 0 0 150px;
+    width: 150px;
+    text-align: right;
+  }
+
+  .subtitle {
+    margin-right: 14px;
+    font-weight: bolder;
+    color: #1890ff;
+  }
+
+  .main {
+    flex: 1;
+
+    .option {
+      display: inline-block;
+      margin: 0 9px;
+      cursor: pointer;
+
+      &:hover {
+        color: #1890ff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.menu .menuitem:hover > .content,
+.content:hover {
+  visibility: visible;
+}
+
+.divider {
+  margin: 24px 0 !important;
+  border-color: #dddddd!important;
+}
