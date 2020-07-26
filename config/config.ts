@@ -26,19 +26,25 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '../layouts/BlankLayout',
+      component: '../layouts/BasicBlankLayout',
       routes: [
         {
           path: '/',
           name: '首页',
           icon: 'smile',
-          component: './Home/EmptyPage',
+          component: './Home',
         },
         {
-          path: '/search',
-          name: '搜索页',
-          icon: 'smile',
-          component: './Search/EmptyPage',
+          path: '/saikul',
+          component: '../layouts/SuperBlankLayout',
+          routes: [
+            {
+              path: '/saikul/search',
+              name: '搜索页',
+              icon: 'smile',
+              component: './Search',
+            }
+          ]
         },
         {
           component: './404',
