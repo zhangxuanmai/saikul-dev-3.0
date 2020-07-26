@@ -29,54 +29,16 @@ export default defineConfig({
       component: '../layouts/BlankLayout',
       routes: [
         {
+          path: '/',
           name: '首页',
           icon: 'smile',
-          path: '/',
           component: './Home/EmptyPage',
         },
-      ],
-    },
-    // {
-    //   path: '/search',
-    //   component: '../layouts/BlankLayout',
-    //   routes: [
-    //     {
-    //       name: '搜索页',
-    //       icon: 'smile',
-    //       path: '/search',
-    //       component: './Search/EmptyPage',
-    //     },
-    //   ],
-    // },
-    {
-      path: '/admin',
-      component: '../layouts/SecurityLayout',
-      routes: [
         {
-          path: '/admin',
-          component: '../layouts/BasicLayout',
-          authority: ['admin', 'user'],
-          routes: [
-            {
-              path: '/admin',
-              redirect: 'welcome',
-            },
-            {
-              path: 'welcome',
-              name: 'welcome',
-              icon: 'smile',
-              component: './Welcome',
-            },
-            {
-              name: '搜索页',
-              icon: 'smile',
-              path: 'search',
-              component: './Search/EmptyPage',
-            },
-            {
-              component: './404',
-            },
-          ],
+          path: '/search',
+          name: '搜索页',
+          icon: 'smile',
+          component: './Search/EmptyPage',
         },
         {
           component: './404',

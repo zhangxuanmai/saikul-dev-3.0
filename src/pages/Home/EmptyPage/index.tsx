@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Home from './components/Home'
-import HeaderBar from './components/Header'
 import styles from './index.less'
 
 interface Props { }
@@ -11,8 +10,7 @@ class App extends Component<Props, State> {
 
   render() {
     return (
-      <div className={styles.block}>
-        <HeaderBar />
+      <div className={styles.wrapper}>
         <Home />
       </div>
     )
