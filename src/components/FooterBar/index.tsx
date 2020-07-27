@@ -13,7 +13,9 @@ class FooterBar extends Component<Props, State> {
 
   render() {
     return (
-      <HomeLoadingFooter />
+      <footer>
+        <HomeLoadingFooter />
+      </footer>
     )
   }
 }

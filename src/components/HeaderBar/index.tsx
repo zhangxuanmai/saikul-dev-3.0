@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Typography, Space } from 'antd'
+import { Typography, Space } from 'antd'
 import { SearchOutlined } from '@ant-design/icons';
 import { history } from 'umi'
 import styles from './index.less'
@@ -21,7 +21,7 @@ export default class HeaderBar extends Component<Props, State> {
 
   render() {
     return (
-      <div className={styles.wrapper}>
+      <header className={styles.wrapper}>
         <div className={styles.container}>
           <Space size={32}>
             <Link href="/" className={styles.logo}>
@@ -38,7 +38,7 @@ export default class HeaderBar extends Component<Props, State> {
             <Link className={styles.link} href="#">注册</Link>
           </Space>
         </div>
-      </div>
+      </header>
     )
   }
 }

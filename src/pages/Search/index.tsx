@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Space, Radio, Card, Form, Typography, Input } from 'antd'
 import { SortAscendingOutlined } from '@ant-design/icons'
-import MainWrapper from '@/components/MainWrapper'
 import StandardFormRow from './components/StandardFormRow'
 import TagSelect from './components/TagSelect'
 import styles from './index.less'
@@ -136,7 +135,7 @@ class SearchPage extends Component<Props, State> {
     };
 
     return (
-      <MainWrapper>
+      <React.Fragment>
         <Card bordered={false} className={styles.card}>
           <Form layout="inline" onValuesChange={this.handleFormValuesChange} >
             <StandardFormRow title='所属分类' style={{ paddingBottom: 11 }} width={80} block>
@@ -187,7 +186,7 @@ class SearchPage extends Component<Props, State> {
             onChange={this.handelTableValuesChange}
           />
         </div>
-      </MainWrapper>
+      </React.Fragment>
     )
   }
 }
