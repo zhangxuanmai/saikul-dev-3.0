@@ -130,9 +130,7 @@ export const Feature60DataSource = {
         title: {
           className: 'feature6-title-text',
           children: (
-            <span>
-              <p>交易统计</p>
-            </span>
+            <span>交易统计</span>
           ),
         },
         className: 'feature6-item',
@@ -148,9 +146,7 @@ export const Feature60DataSource = {
               unit: {
                 className: 'feature6-unit',
                 children: (
-                  <span>
-                    <p>亿</p>
-                  </span>
+                  <span>亿</span>
                 ),
               },
               toText: true,
@@ -159,9 +155,7 @@ export const Feature60DataSource = {
             children: {
               className: 'feature6-text',
               children: (
-                <span>
-                  <p>总交易额</p>
-                </span>
+                  <span>总交易额</span>
               ),
             },
           },
@@ -175,9 +169,7 @@ export const Feature60DataSource = {
               unit: {
                 className: 'feature6-unit',
                 children: (
-                  <span>
-                    <p>笔</p>
-                  </span>
+                    <span>笔</span>
                 ),
               },
               toText: true,
@@ -186,9 +178,7 @@ export const Feature60DataSource = {
             children: {
               className: 'feature6-text',
               children: (
-                <span>
-                  <p>支付笔数</p>
-                </span>
+                  <span>支付笔数</span>
               ),
             },
           },
@@ -202,9 +192,7 @@ export const Feature60DataSource = {
               unit: {
                 className: 'feature6-unit',
                 children: (
-                  <span>
-                    <p>万</p>
-                  </span>
+                    <span>万</span>
                 ),
               },
               toText: true,
@@ -213,9 +201,7 @@ export const Feature60DataSource = {
             children: {
               className: 'feature6-text',
               children: (
-                <span>
-                  <p>总交易吨数</p>
-                </span>
+                  <span>总交易吨数</span>
               ),
             },
           },
@@ -225,9 +211,7 @@ export const Feature60DataSource = {
         title: {
           className: 'feature6-title-text',
           children: (
-            <span>
-              <p>纳税统计</p>
-            </span>
+              <span>纳税统计</span>
           ),
         },
         className: 'feature6-item',
@@ -287,9 +271,7 @@ export const Content30DataSource = {
       {
         name: 'title',
         children: (
-          <span>
-            <p>提供专业的再生资源交易服务</p>
-          </span>
+            <span>提供专业的再生资源交易服务</span>
         ),
         className: 'title-h1',
       },
@@ -297,9 +279,7 @@ export const Content30DataSource = {
         name: 'content',
         className: 'title-content',
         children: (
-          <span>
-            <p>基于信息流、商流、资金流、物流、票流五流的数据溯源</p>
-          </span>
+            <span>基于信息流、商流、资金流、物流、票流五流的数据溯源</span>
         ),
       },
     ],
@@ -322,19 +302,15 @@ export const Content30DataSource = {
           title: {
             className: 'content3-title',
             children: (
-              <span>
-                <p>企业采购管理</p>
-              </span>
+                <span>企业采购管理</span>
             ),
           },
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   实现集团化分权采购管理，采购员分权签署电子合同，物流信息二次验证
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -354,19 +330,15 @@ export const Content30DataSource = {
           title: {
             className: 'content3-title',
             children: (
-              <span>
-                <p>人脸识别</p>
-              </span>
+                <span>人脸识别</span>
             ),
           },
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   按金融平台安全标准，使用人脸识别及银行信息验证，确保交易的安全有效性
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -387,11 +359,9 @@ export const Content30DataSource = {
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   区块链电子合同、物流车辆实时定位、生产线物联网等监控管理，多环节验证资源及使用状态，智能分析及问题汇总
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -411,19 +381,15 @@ export const Content30DataSource = {
           title: {
             className: 'content3-title',
             children: (
-              <span>
-                <p>移动操作</p>
-              </span>
+                <span>移动操作</span>
             ),
           },
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   移动端发布、订单、电子合同签署等，便携操作，实现易上手、通用性强。
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -443,19 +409,15 @@ export const Content30DataSource = {
           title: {
             className: 'content3-title',
             children: (
-              <span>
-                <p>物流溯源</p>
-              </span>
+                <span>物流溯源</span>
             ),
           },
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   通过对物流车辆的跟踪定位、轨迹上报、工厂验证等方式，确保交易的真实有效性
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -476,11 +438,9 @@ export const Content30DataSource = {
           content: {
             className: 'content3-content',
             children: (
-              <span>
-                <p>
+                <span>
                   一站式、全周期大数据协同工作平台，提供再生资源行业大数据分析
-                </p>
-              </span>
+                </span>
             ),
           },
         },
@@ -512,9 +472,7 @@ export const Feature80DataSource = {
         children: {
           href: 'https://www.saikul.com/register.html',
           children: (
-            <span>
-              <p>立即注册</p>
-            </span>
+              <span>立即注册</span>
           ),
         },
       },
@@ -538,11 +496,7 @@ export const Feature80DataSource = {
           title: {
             className: 'feature8-carousel-title-block',
             children: (
-              <span>
-                <span>
-                  <p>个人注册流程</p>
-                </span>
-              </span>
+                  <span>个人注册流程</span>
             ),
           },
           children: [
@@ -568,20 +522,14 @@ export const Feature80DataSource = {
                     name: 'title',
                     className: 'feature8-block-title',
                     children: (
-                      <span>
-                        <p>注册账号</p>
-                      </span>
+                        <span>注册账号</span>
                     ),
                   },
                   {
                     name: 'content',
                     className: 'feature8-block-content',
                     children: (
-                      <span>
-                        <span>
-                          <p>注册平台使用账号</p>
-                        </span>
-                      </span>
+                          <span>注册平台使用账号</span>
                     ),
                   },
                 ],
@@ -609,20 +557,14 @@ export const Feature80DataSource = {
                     name: 'title',
                     className: 'feature8-block-title',
                     children: (
-                      <span>
-                        <p>个人授权</p>
-                      </span>
+                        <span>个人授权</span>
                     ),
                   },
                   {
                     name: 'content',
                     className: 'feature8-block-content',
                     children: (
-                      <span>
-                        <span>
-                          <p>添加个人身份信息验证，签署授权协议</p>
-                        </span>
-                      </span>
+                          <span>添加个人身份信息验证，签署授权协议</span>
                     ),
                   },
                 ],
@@ -650,20 +592,14 @@ export const Feature80DataSource = {
                     name: 'title',
                     className: 'feature8-block-title',
                     children: (
-                      <span>
-                        <span>
-                          <p>办理个体户</p>
-                        </span>
-                      </span>
+                          <span>办理个体户</span>
                     ),
                   },
                   {
                     name: 'content',
                     className: 'feature8-block-content',
                     children: (
-                      <span>
-                        <p>平台代办个体户营业执照</p>
-                      </span>
+                        <span>平台代办个体户营业执照</span>
                     ),
                   },
                 ],
@@ -692,18 +628,14 @@ export const Feature80DataSource = {
                     name: 'title',
                     className: 'feature8-block-title',
                     children: (
-                      <span>
-                        <p>税务登记</p>
-                      </span>
+                        <span>税务登记</span>
                     ),
                   },
                   {
                     name: 'content',
                     className: 'feature8-block-content',
                     children: (
-                      <span>
-                        <p>l办理税务登记，允许交易</p>
-                      </span>
+                        <span>办理税务登记，允许交易</span>
                     ),
                   },
                 ],
@@ -717,9 +649,7 @@ export const Feature80DataSource = {
           gutter: 120,
           title: {
             children: (
-              <span>
-                <p>平台交易流程</p>
-              </span>
+                <span>平台交易流程</span>
             ),
             className: 'feature8-carousel-title-block',
           },
@@ -877,9 +807,7 @@ export const Content120DataSource = {
       {
         name: 'title',
         children: (
-          <span>
-            <p>合作伙伴</p>
-          </span>
+            <span>合作伙伴</span>
         ),
         className: 'title-h1',
       },
@@ -985,9 +913,7 @@ export const Footer10DataSource = {
         className: 'block',
         title: {
           children: (
-            <span>
-              <p>通知</p>
-            </span>
+              <span>通知</span>
           ),
         },
         childWrapper: {
@@ -996,27 +922,21 @@ export const Footer10DataSource = {
               name: 'link0',
               href: 'https://www.saikul.com/bulletin-board.html',
               children: (
-                <span>
-                  <p>公告栏</p>
-                </span>
+                  <span>公告栏</span>
               ),
             },
             {
               name: 'link1',
               href: 'https://www.saikul.com/help-center.html',
               children: (
-                <span>
-                  <p>帮助中心</p>
-                </span>
+                  <span>帮助中心</span>
               ),
             },
             {
               name: 'link2',
               href: 'http://download.saikul.com/platform/manual.pdf',
               children: (
-                <span>
-                  <p>操作手册</p>
-                </span>
+                  <span>操作手册</span>
               ),
             },
           ],
@@ -1034,9 +954,7 @@ export const Footer10DataSource = {
               href: 'https://www.saikul.com/about-us.html',
               name: 'link0',
               children: (
-                <span>
-                  <p>关于我们</p>
-                </span>
+                  <span>关于我们</span>
               ),
             },
             { href: '#', name: 'link1', children: '联系我们' },
@@ -1050,9 +968,7 @@ export const Footer10DataSource = {
         className: 'block',
         title: {
           children: (
-            <span>
-              <p>快捷入口</p>
-            </span>
+              <span>快捷入口</span>
           ),
         },
         childWrapper: {
@@ -1061,18 +977,14 @@ export const Footer10DataSource = {
               href: 'https://admin.saikul.com',
               name: 'link0',
               children: (
-                <span>
-                  <p>监管端</p>
-                </span>
+                  <span>监管端</span>
               ),
             },
             {
               href: 'http://www.sinzetech.com',
               name: 'link1',
               children: (
-                <span>
-                  <p>新之官网</p>
-                </span>
+                  <span>新之官网</span>
               ),
             },
           ],

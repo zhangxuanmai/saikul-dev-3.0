@@ -81,7 +81,7 @@ export default function MenuPanel({ }: Props): ReactElement {
     <div className={classnames(styles.container)}>
       <div className={classnames(styles.menu)}>
         <div className={classnames(styles.headline)}>
-          <span>行业分类</span>
+          <span>回收分类</span>
           <AppstoreOutlined />
         </div>
         {createMenuItems(options)}
