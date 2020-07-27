@@ -29,22 +29,52 @@ export default defineConfig({
       component: '../layouts/BasicBlankLayout',
       routes: [
         {
-          path: '/',
+          name: '高级表单',
+          icon: 'smile',
+          path: '/formadvancedform',
+          component: './Examples/FormAdvancedForm',
+        },
+        {
+          name: '搜索列表（项目）',
+          icon: 'smile',
+          path: '/listsearchprojects',
+          component: './Examples/ListSearchProjects',
+        },
+        {
           name: '首页',
           icon: 'smile',
+          path: '/',
           component: './Home',
         },
         {
-          path: '/saikul',
-          component: '../layouts/SuperBlankLayout',
-          routes: [
-            {
-              path: '/saikul/search',
-              name: '搜索页',
-              icon: 'smile',
-              component: './Search',
-            }
-          ]
+          name: '申请入住',
+          icon: 'smile',
+          path: '/apply',
+          component: './Apply',
+        },
+        {
+          name: '帮助中心',
+          icon: 'smile',
+          path: '/helper',
+          component: './Helper',
+        },
+        {
+          name: '关于我们',
+          icon: 'smile',
+          path: '/about',
+          component: './about',
+        },
+        {
+          name: '搜索页',
+          icon: 'smile',
+          path: '/search',
+          component: './Search',
+        },
+        {
+          name: '搜索详情',
+          icon: 'smile',
+          path: '/detail/:id',
+          component: './Detail',
         },
         {
           component: './404',

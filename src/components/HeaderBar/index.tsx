@@ -1,34 +1,49 @@
-import React, { ReactElement } from 'react'
-import { Input } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
+import React, { Component } from 'react'
+import { Input, Typography, Space } from 'antd'
+import { SearchOutlined } from '@ant-design/icons';
+import { history } from 'umi'
 import styles from './index.less'
 
+const { Link } = Typography
+
 interface Props {
-  
+
+}
+interface State {
 }
 
-export default function HeaderBar({}: Props): ReactElement {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div>
-          <span className={styles.logo}><img src="http://data.saikul.com/images/logo.png" alt="logo" /></span>
-          <span className={styles.link}>首页</span>
-          <span className={styles.link}>帮助中心</span>
-          <span className={styles.link}>申请入住</span>
-          <span className={styles.link}>关于我们</span>
-        </div>
-        <div>
-          <Input
-            className={styles.input}
-            placeholder="输入商品关键词"
-            suffix={<SearchOutlined className={styles.icon} />}
-          />
-          <span className={styles.link}>登录</span>
-          <span className={styles.link}>注册</span>
+export default class HeaderBar extends Component<Props, State> {
+  state = {}
+
+  handleToSearchPage = () => {
+    history.push({ pathname: '/search' })
+  }
+
+  render() {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <Space size={32}>
+            <Link href="/" className={styles.logo}>
+              <img src="http://data.saikul.com/images/logo.png" alt="logo" />
+            </Link>
+            <Link className={styles.link} href="/apply">申请入住</Link>
+            <Link className={styles.link} href="/helper">帮助中心</Link>
+            <Link className={styles.link} href="/about">关于我们</Link>
+          </Space>
+
+          <Space size={32}>
+            <SearchOutlined onClick={this.handleToSearchPage} />
+            <Link className={styles.link} href="#">登录</Link>
+            <Link className={styles.link} href="#">注册</Link>
+          </Space>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
+
+
+
+
 

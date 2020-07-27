@@ -1,62 +1,105 @@
 import React, { Component } from 'react'
-import CustomRadio from './components/RadioCustom'
-import { PaginationConfig } from 'antd/es/table'
-import { Table, Space, Radio } from 'antd'
-import { SortAscendingOutlined } from '@ant-design/icons';
+import { Table, Space, Radio, Card, Form, Typography, Input } from 'antd'
+import { SortAscendingOutlined } from '@ant-design/icons'
+import MainWrapper from '@/components/MainWrapper'
+import StandardFormRow from './components/StandardFormRow'
+import TagSelect from './components/TagSelect'
 import styles from './index.less'
+import { FormValues, LocationSimple } from './index.d'
+import { dataForm, dataSource } from './data-source'
 
-import {
-  option1,
-  option2,
-  option3,
-  dataSource,
-} from './data-source'
+const FormItem = Form.Item
+const { Text, Link } = Typography
+const { Search } = Input
 
 
-interface Props { }
-interface State { }
+interface Props {
+  location: LocationSimple
+}
+interface State {
+  form: FormValues
+}
 
-class EmptyPage extends Component<Props, State> {
+class SearchPage extends Component<Props, State> {
   state = {
-    current: 1,
-    pageSize: 15,
-    total: 100,
+    form: {
+      category: [],
+      taxArea: [],
+      dispatchArea: [],
+      keyword: "",
+      collation: "date",
+      current: 1,
+      pageSize: 15,
+      total: 100,
+    },
   }
 
-  handelTableParamsChange = (pagination: PaginationConfig) => {
-    const {current} = pagination
-    this.setState((state, props) => { return { current }})
+  /* 排序规则更新 */
+  handleRankValuesChange = (event: any) => {
+    const { value } = event.target
+    this.handleFetchData({
+      collation: value,
+      current: 1,
+    })
   }
 
-  handleRankTypeChange = (e: { target: any }) => {
-    console.log(e.target.value)
+  /* 表单内容更新 */
+  handleFormValuesChange = (value: any, allValues: object) => {
+    this.handleFetchData({
+      ...allValues,
+      current: 1,
+    })
+  }
+
+  /* 表格分页更新 */
+  handelTableValuesChange = (pagination: any) => {
+    const { current } = pagination
+    this.handleFetchData({ current })
+  }
+
+  /* 点击关键词搜索 */
+  handleKeywordSearch = (value: string) => {
+    this.handleFetchData({
+      keyword: value,
+      current: 1,
+    })
+  }
+
+  /* 请求数据 */
+  handleFetchData = async (params: object) => {
+    await this.setState((state, props) => {
+      const form = { ...state.form, ...params }
+      return { form }
+    })
+    console.log(this.state.form)
+  }
+
+  componentDidMount() {
+    // console.log(this.props.location)
   }
 
 
   render() {
-    const { title: t1, value: v1, content: c1 } = option1
-    const { title: t2, value: v2, content: c2 } = option2
-    const { title: t3, value: v3, content: c3 } = option3
-    const { current, pageSize, total } = this.state
+    const { current, pageSize, total, collation } = this.state.form;
     const pagination = {
       current,
       pageSize,
       total,
       showSizeChanger: false,
       hideOnSinglePage: true,
-    }
+    };
     const columns = [
       {
         title: '排名',
         dataIndex: 'index',
         key: 'index',
-        render: (text, record, index) => `${((current - 1) * pageSize) + (index + 1)}`
+        render: (text: any, record: any, index: number) => `${((current - 1) * pageSize) + (index + 1)}`
       },
       {
         title: '品种/牌号',
         dataIndex: 'plant',
         key: 'plant',
-        render: (text: string) => <span className={styles.link}>{text}</span>,
+        render: (text: string) => <Link href="/detail/123">{text}</Link>,
       },
       {
         title: '货源地',
@@ -82,37 +125,71 @@ class EmptyPage extends Component<Props, State> {
         title: '价格',
         dataIndex: 'price',
         key: 'price',
-        render: (text: string) => <span className={styles.price}>￥{text}</span>,
+        render: (text: string) => <Text>￥{text}</Text>,
       },
     ];
+    const createTagSelectOptions = (data: any[]) => {
+      return data.map(item => {
+        const { label, value } = item
+        return (<TagSelect.Option key={label} value={value}>{label}</TagSelect.Option>)
+      })
+    };
 
     return (
-      <div>
-        <div className={styles.block1}>
-          <CustomRadio title={t1} value={v1} data={c1} />
-          <CustomRadio title={t2} value={v2} data={c2} />
-          <CustomRadio title={t3} value={v3} data={c3} divider={false} />
-        </div>
+      <MainWrapper>
+        <Card bordered={false} className={styles.card}>
+          <Form layout="inline" onValuesChange={this.handleFormValuesChange} >
+            <StandardFormRow title='所属分类' style={{ paddingBottom: 11 }} width={80} block>
+              <FormItem name='category'>
+                <TagSelect>
+                  {createTagSelectOptions(dataForm.category)}
+                </TagSelect>
+              </FormItem>
+            </StandardFormRow>
+            <StandardFormRow title='缴税地区' style={{ paddingBottom: 11 }} width={80} block>
+              <FormItem name='taxArea'>
+                <TagSelect>
+                  {createTagSelectOptions(dataForm.taxArea)}
+                </TagSelect>
+              </FormItem>
+            </StandardFormRow>
+            <StandardFormRow title='发货地区' style={{ paddingBottom: 11 }} width={80} block>
+              <FormItem name='dispatchArea'>
+                <TagSelect>
+                  {createTagSelectOptions(dataForm.dispatchArea)}
+                </TagSelect>
+              </FormItem>
+            </StandardFormRow>
+          </Form>
+          <StandardFormRow title="关键词" width={80} block last>
+            <Search
+              className={styles.input}
+              placeholder="请输入商品，买家名称搜索"
+              onSearch={value => this.handleKeywordSearch(value)}
+            />
+          </StandardFormRow>
+        </Card>
 
-        <div className={styles.block2}>
-          <Radio.Group defaultValue="0" buttonStyle="solid" onChange={this.handleRankTypeChange}>
-            <Space className={styles.top}>
-              <Radio.Button value="0">上架时间</Radio.Button>
-              <Radio.Button value="1">价格排序 <SortAscendingOutlined /></Radio.Button>
+        <Card bordered={false}>
+          <Radio.Group defaultValue={collation} buttonStyle="solid" onChange={this.handleRankValuesChange}>
+            <Space className={styles.toolbar}>
+              <Radio.Button value="date">上架时间</Radio.Button>
+              <Radio.Button value="price">价格排序 <SortAscendingOutlined /></Radio.Button>
             </Space>
           </Radio.Group>
+        </Card>
 
+        <div style={{ backgroundColor: "#ffffff" }}>
           <Table
-            size="middle"
             dataSource={dataSource}
             columns={columns}
-            pagination={pagination}
-            onChange={this.handelTableParamsChange}
+            pagination={{ ...pagination, position: ['bottomCenter', 'bottomCenter'] }}
+            onChange={this.handelTableValuesChange}
           />
         </div>
-      </div>
+      </MainWrapper>
     )
   }
 }
 
-export default EmptyPage
+export default SearchPage;

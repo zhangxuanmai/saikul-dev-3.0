@@ -1,9 +1,12 @@
 import React, { ReactElement } from 'react'
 import { RightOutlined, AppstoreOutlined } from '@ant-design/icons'
+import { Divider, Typography } from 'antd'
+import { history } from 'umi'
 import { options } from './constant'
-import { Divider  } from 'antd'
 import styles from './index.less'
 import classnames from 'classnames'
+
+const { Link } = Typography
 
 interface Props {
 
@@ -20,6 +23,15 @@ interface Option {
 
 export default function MenuPanel({ }: Props): ReactElement {
 
+  const handleClickLink = (value: string) => {
+    history.push({
+      pathname: '/search',
+      state: {
+        value: value,
+      },
+    });
+  }
+  
   const createSubMenuItems = (params: Array<Option>) => {
     return params.map(item => {
       const { title, content } = item
@@ -31,7 +43,15 @@ export default function MenuPanel({ }: Props): ReactElement {
             <RightOutlined />
           </div>
           <div className={styles.dd}>
-            {content.map((text: string) => (<span key={text} className={styles.link}>{text}</span>))}
+            {content.map((text: string) => {
+              return (
+                <Link
+                  key={text}
+                  className={styles.link}
+                  onClick={() => handleClickLink(text)}
+                >{text}</Link>
+              )
+            })}
             <Divider className={styles.divider} dashed />
           </div>
         </div>
@@ -44,16 +64,15 @@ export default function MenuPanel({ }: Props): ReactElement {
       const { title, subtitle, options } = item
 
       return (
-        <>
+        <div key={index}>
           <div className={styles.menuitem}>
             <span>{title}</span>
             <span className={styles.subtitle}>{subtitle} <RightOutlined /></span>
           </div>
-
           <div className={styles.menucontent}>
             {createSubMenuItems(options)}
           </div>
-        </>
+        </div>
       )
     })
   }

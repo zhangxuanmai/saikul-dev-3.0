@@ -94,16 +94,17 @@ export default class Home extends React.Component {
         dataSource={Content120DataSource}
         isMobile={this.state.isMobile}
       />,
-      <Footer1
-        id="Footer1_0"
-        key="Footer1_0"
-        dataSource={Footer10DataSource}
-        isMobile={this.state.isMobile}
-      />,
+      // <Footer1
+      //   id="Footer1_0"
+      //   key="Footer1_0"
+      //   dataSource={Footer10DataSource}
+      //   isMobile={this.state.isMobile}
+      // />,
     ];
     return (
       <div
         className="templates-wrapper"
+        style={{minHeight: '100vh'}}
         ref={(d) => {
           this.dom = d;
         }}
