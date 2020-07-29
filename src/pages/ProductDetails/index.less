@@ -1,0 +1,66 @@
+.slide {
+  height: 280px;
+  width: 100%;
+  background-color: #364d79;
+  color: #ffffff;
+  text-align: center;
+
+  .img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.section {
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dots {
+  margin-top: 24px;
+
+  .dot {
+    margin-right: 14px;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    color: #ffffff;
+    background-color: #364d79;
+    cursor: pointer;
+
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.info {
+  position: relative;
+
+  :global {
+    .ant-descriptions-title {
+      font-size:  24px;
+    }
+    .ant-descriptions-item-label {
+      text-align: right;
+      width: 100px  
+    }
+  }
+
+  .input {
+    width: 150px !important;
+  }
+
+  .buttons {
+    padding-left: 100px;
+  }
+
+  .statistic {
+    position: absolute;
+    right: 14px;
+  }
+}
