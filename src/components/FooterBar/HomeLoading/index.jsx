@@ -3,21 +3,9 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
 
-import Nav3 from './Nav3';
-import Banner0 from './Banner0';
-import Feature6 from './Feature6';
-import Content3 from './Content3';
-import Feature8 from './Feature8';
-import Content12 from './Content12';
 import Footer1 from './Footer1';
 
 import {
-  Nav30DataSource,
-  Banner00DataSource,
-  Feature60DataSource,
-  Content30DataSource,
-  Feature80DataSource,
-  Content120DataSource,
   Footer10DataSource,
 } from './data.source';
 import './less/antMotionStyle.less';

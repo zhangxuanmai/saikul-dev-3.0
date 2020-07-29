@@ -1,16 +1,13 @@
-import React, { ReactElement } from 'react'
-import { RightOutlined, AppstoreOutlined } from '@ant-design/icons'
-import { Divider, Typography } from 'antd'
-import { history } from 'umi'
-import { options } from './constant'
-import styles from './index.less'
-import classnames from 'classnames'
+import React  from 'react';
+import { RightOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { Divider, Typography } from 'antd';
+import { options } from './constant';
+import styles from './index.less';
+import classnames from 'classnames';
 
 const { Link } = Typography
 
-interface Props {
-
-}
+interface Props { }
 interface GarbageType {
   title: string;
   subtitle: string,
@@ -21,18 +18,10 @@ interface Option {
   content: string[]
 }
 
-export default function MenuPanel({ }: Props): ReactElement {
+const MenuPanel: React.FC<Props> = (props) => {
 
-  const handleClickLink = (value: string) => {
-    history.push({
-      pathname: '/search',
-      state: {
-        value: value,
-      },
-    });
-  }
-  
-  const createSubMenuItems = (params: Array<Option>) => {
+  /* 构造子菜单 */
+  const createSubMenuItems = (params: Array<Option>, type?: string) => {
     return params.map(item => {
       const { title, content } = item
 
@@ -48,7 +37,7 @@ export default function MenuPanel({ }: Props): ReactElement {
                 <Link
                   key={text}
                   className={styles.link}
-                  onClick={() => handleClickLink(text)}
+                  href={`https://www.saikul.com/search.html?type=${type}`}
                 >{text}</Link>
               )
             })}
@@ -59,6 +48,7 @@ export default function MenuPanel({ }: Props): ReactElement {
     })
   }
 
+  /* 构造主菜单 */
   const createMenuItems = (params: Array<GarbageType>) => {
     return params.map((item, index) => {
       const { title, subtitle, options } = item
@@ -70,7 +60,7 @@ export default function MenuPanel({ }: Props): ReactElement {
             <span className={styles.subtitle}>{subtitle} <RightOutlined /></span>
           </div>
           <div className={styles.menucontent}>
-            {createSubMenuItems(options)}
+            {createSubMenuItems(options, title)}
           </div>
         </div>
       )
@@ -89,3 +79,5 @@ export default function MenuPanel({ }: Props): ReactElement {
     </div>
   )
 }
+
+export default MenuPanel;

@@ -134,7 +134,7 @@ export const options = [
     ]
   },
   {
-    title: '废玻璃/橡胶',
+    title: '废玻璃橡胶',
     subtitle: '废玻璃等',
     options: [
       {

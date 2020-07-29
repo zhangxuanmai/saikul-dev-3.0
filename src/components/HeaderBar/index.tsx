@@ -1,25 +1,13 @@
 import React, { ReactElement } from 'react'
-import { Typography, Space } from 'antd'
+import { Typography, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { history, useLocation } from 'umi'
-import styles from './index.less'
+import styles from './index.less';
 
 const { Link } = Typography
 
-interface Props {
-
-}
+interface Props {}
 
 function HeaderBar({ }: Props): ReactElement {
-  const location = useLocation()
-  const pathname = location.pathname
-  const isHomePage = pathname === '/'
-
-  const handleToSearchPage = () => {
-    history.push({
-      pathname: '/search'
-    })
-  }
 
   return (
     <header className={styles.wrapper}>
@@ -28,15 +16,15 @@ function HeaderBar({ }: Props): ReactElement {
           <Link href="/" className={styles.logo}>
             <img src={"http://data.saikul.com/images/logo.png"} alt="logo" />
           </Link>
-          <Link className={styles.link} href="/apply">申请入住</Link>
-          <Link className={styles.link} href="/helper">帮助中心</Link>
-          <Link className={styles.link} href="/about">关于我们</Link>
+          <Link className={styles.link} href="https://www.saikul.com/trader-register.html">申请入住</Link>
+          <Link className={styles.link} href="https://www.saikul.com/help-center.html">帮助中心</Link>
+          <Link className={styles.link} href="https://www.saikul.com/about-us.html">关于我们</Link>
         </Space>
 
         <Space size={32}>
-          {isHomePage && <SearchOutlined onClick={handleToSearchPage} />}
-          <Link className={styles.link} href="#">登录</Link>
-          <Link className={styles.link} href="#">注册</Link>
+          <Link className={styles.link} href="https://www.saikul.com/search.html?q=&type=废塑料"><SearchOutlined /></Link>
+          <Link className={styles.link} href="https://www.saikul.com/login.html">登录</Link>
+          <Link className={styles.link} href="https://www.saikul.com/register.html">注册</Link>
         </Space>
       </div>
     </header>

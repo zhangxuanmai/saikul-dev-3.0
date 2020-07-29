@@ -10,6 +10,7 @@ import Content3 from './Content3';
 import Feature8 from './Feature8';
 import Content12 from './Content12';
 import Footer1 from './Footer1';
+import numeral from 'numeral'
 
 import {
   Nav30DataSource,
@@ -27,14 +28,17 @@ enquireScreen((b) => {
   isMobile = b;
 });
 
+
 const { location = {} } = typeof window !== 'undefined' ? window : {};
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: {},
       isMobile,
       show: !location.port, // 如果不是 dva 2.0 请删除
+      Feature60DataSource: Feature60DataSource
     };
   }
 
@@ -56,14 +60,185 @@ export default class Home extends React.Component {
     /* 如果不是 dva 2.0 请删除 end */
   }
 
+  static getDerivedStateFromProps(props, state) {
+    const data = props.data.data.saikulIndexDataView
+    if (data) {
+      const {
+        lastMonthTradingVolume,
+        totalTaxAmount,
+        totalTaxableOrderAmount,
+        totalTaxableOrderCount,
+        totalTradingAmount,
+        totalTradingCount,
+        totalTradingVolume,
+      } = data[0]
+
+      const amountMoney = '1' + numeral(totalTradingAmount / Math.pow(10, 8)).format('0,0.00')
+      const amountTonnage = numeral(totalTradingVolume / Math.pow(10, 5)).format('0,0.00')
+      const amountTax = numeral(totalTaxAmount / Math.pow(10, 8)).format('0,0.00')
+      const amountOrder = numeral(totalTaxableOrderAmount / Math.pow(10, 8)).format('0,0.00')
+      const Feature60DataSource = {
+        wrapper: { className: 'home-page-wrapper feature6-wrapper' },
+        OverPack: { className: 'home-page feature6', playScale: 0.3 },
+        Carousel: {
+          className: 'feature6-content',
+          dots: false,
+          wrapper: { className: 'feature6-content-wrapper' },
+          titleWrapper: {
+            className: 'feature6-title-wrapper',
+            barWrapper: {
+              className: 'feature6-title-bar-wrapper',
+              children: { className: 'feature6-title-bar' },
+            },
+            title: { className: 'feature6-title' },
+          },
+          children: [
+            {
+              title: {
+                className: 'feature6-title-text',
+                children: (
+                  <span>交易统计</span>
+                ),
+              },
+              className: 'feature6-item',
+              name: 'block0',
+              children: [
+                {
+                  md: 8,
+                  xs: 24,
+                  className: 'feature6-number-wrapper',
+                  name: 'child0',
+                  number: {
+                    className: 'feature6-number',
+                    unit: {
+                      className: 'feature6-unit',
+                      children: (
+                        <span>亿</span>
+                      ),
+                    },
+                    toText: true,
+                    children: `${amountMoney}`,
+                  },
+                  children: {
+                    className: 'feature6-text',
+                    children: (
+                      <span>总交易额</span>
+                    ),
+                  },
+                },
+                {
+                  md: 8,
+                  xs: 24,
+                  className: 'feature6-number-wrapper',
+                  name: 'child1',
+                  number: {
+                    className: 'feature6-number',
+                    unit: {
+                      className: 'feature6-unit',
+                      children: (
+                        <span>笔</span>
+                      ),
+                    },
+                    toText: true,
+                    children: `${totalTradingCount}`,
+                  },
+                  children: {
+                    className: 'feature6-text',
+                    children: (
+                      <span>支付笔数</span>
+                    ),
+                  },
+                },
+                {
+                  md: 8,
+                  xs: 24,
+                  className: 'feature6-number-wrapper',
+                  name: 'child2',
+                  number: {
+                    className: 'feature6-number',
+                    unit: {
+                      className: 'feature6-unit',
+                      children: (
+                        <span>万</span>
+                      ),
+                    },
+                    toText: true,
+                    children: `${amountTonnage}`,
+                  },
+                  children: {
+                    className: 'feature6-text',
+                    children: (
+                      <span>总交易吨数</span>
+                    ),
+                  },
+                },
+              ],
+            },
+            {
+              title: {
+                className: 'feature6-title-text',
+                children: (
+                  <span>纳税统计</span>
+                ),
+              },
+              className: 'feature6-item',
+              name: 'block1',
+              children: [
+                {
+                  md: 8,
+                  xs: 24,
+                  name: 'child0',
+                  className: 'feature6-number-wrapper',
+                  number: {
+                    className: 'feature6-number',
+                    unit: { className: 'feature6-unit', children: '笔' },
+                    toText: true,
+                    children: `${totalTaxableOrderCount}`,
+                  },
+                  children: { className: 'feature6-text', children: '纳税单数' },
+                },
+                {
+                  md: 8,
+                  xs: 24,
+                  name: 'child1',
+                  className: 'feature6-number-wrapper',
+                  number: {
+                    className: 'feature6-number',
+                    unit: { className: 'feature6-unit', children: '亿' },
+                    toText: true,
+                    children: `${amountTax}`,
+                  },
+                  children: { className: 'feature6-text', children: '代扣税额' },
+                },
+                {
+                  md: 8,
+                  xs: 24,
+                  name: 'child2',
+                  className: 'feature6-number-wrapper',
+                  number: {
+                    className: 'feature6-number',
+                    unit: { className: 'feature6-unit', children: '亿' },
+                    toText: true,
+                    children: `${amountOrder}`,
+                  },
+                  children: { className: 'feature6-text', children: '订单额' },
+                },
+              ],
+            },
+          ]
+        }
+      }
+      return {
+        Feature60DataSource
+      }
+    }
+
+    return null
+  }
+
   render() {
+
     const children = [
-      // <Nav3
-      //   id="Nav3_0"
-      //   key="Nav3_0"
-      //   dataSource={Nav30DataSource}
-      //   isMobile={this.state.isMobile}
-      // />,
       <Banner0
         id="Banner0_0"
         key="Banner0_0"
@@ -73,7 +248,7 @@ export default class Home extends React.Component {
       <Feature6
         id="Feature6_0"
         key="Feature6_0"
-        dataSource={Feature60DataSource}
+        dataSource={this.state.Feature60DataSource}
         isMobile={this.state.isMobile}
       />,
       <Content3
@@ -104,7 +279,7 @@ export default class Home extends React.Component {
     return (
       <div
         className="templates-wrapper"
-        style={{minHeight: '100vh'}}
+        style={{ minHeight: '100vh' }}
         ref={(d) => {
           this.dom = d;
         }}
@@ -112,7 +287,7 @@ export default class Home extends React.Component {
         {/* 如果不是 dva 2.0 替换成 {children} start */}
         {this.state.show && children}
         {/* 如果不是 dva 2.0 替换成 {children} end */}
-      </div>
+      </div >
     );
   }
 }

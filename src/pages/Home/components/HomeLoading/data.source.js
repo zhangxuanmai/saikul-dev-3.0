@@ -102,7 +102,7 @@ export const Banner00DataSource = {
   textWrapper: { className: 'banner0-text-wrapper' },
   title: {
     className: 'banner0-title',
-    children: 'https://zos.alipayobjects.com/rmsportal/HqnZZjBjWRbjyMr.png',
+    // children: 'https://zos.alipayobjects.com/rmsportal/HqnZZjBjWRbjyMr.png',
   },
   content: {
     className: 'banner0-content',
@@ -900,7 +900,7 @@ export const Footer10DataSource = {
           children: [
             {
               name: 'content0',
-              children: 'Animation specification and components of Ant Design.',
+              children: 'To provide renewable resources industry solutions.',
               className: 'kcvt2h272-editor_css',
             },
           ],
@@ -957,7 +957,11 @@ export const Footer10DataSource = {
                   <span>关于我们</span>
               ),
             },
-            { href: '#', name: 'link1', children: '联系我们' },
+            { 
+              href: 'https://www.saikul.com/about-us.html', 
+              name: 'link1', 
+              children: '联系我们' 
+            },
           ],
         },
       },

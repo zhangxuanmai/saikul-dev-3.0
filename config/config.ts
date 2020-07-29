@@ -65,16 +65,16 @@ export default defineConfig({
           component: './about',
         },
         {
-          name: '搜索页',
+          name: '商品搜索页',
           icon: 'smile',
           path: '/search',
           component: './Search',
         },
         {
-          name: '搜索详情',
+          name: '商品详情页',
           icon: 'smile',
-          path: '/detail/:id',
-          component: './Detail',
+          path: '/product/:id',
+          component: './ProductDetails',
         },
         {
           component: './404',
@@ -93,7 +93,16 @@ export default defineConfig({
   // @ts-ignore
   title: false,
   ignoreMomentLocale: true,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: {
+    '/api/': {
+      target: 'https://admin.saikul.com/api',
+      // target: 'http://87k9x6.natappfree.cc/api'
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '',
+      },
+    },
+  },
   manifest: {
     basePath: '/',
   },
