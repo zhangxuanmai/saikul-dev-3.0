@@ -1,6 +1,7 @@
 import React  from 'react';
 import { RightOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Divider, Typography } from 'antd';
+import { useHistory } from 'umi';
 import { options } from './constant';
 import styles from './index.less';
 import classnames from 'classnames';
@@ -19,6 +20,7 @@ interface Option {
 }
 
 const MenuPanel: React.FC<Props> = (props) => {
+  const history = useHistory()
 
   /* 构造子菜单 */
   const createSubMenuItems = (params: Array<Option>, type?: string) => {
@@ -37,7 +39,11 @@ const MenuPanel: React.FC<Props> = (props) => {
                 <Link
                   key={text}
                   className={styles.link}
-                  href={`https://www.saikul.com/search.html?type=${type}`}
+                  onClick={() => history.push({pathname: '/search', state: {
+                    type: type,
+                    content: content,
+                    value: text,
+                  }})}
                 >{text}</Link>
               )
             })}

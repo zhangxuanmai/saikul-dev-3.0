@@ -1,24 +1,31 @@
 @import '~antd/es/style/themes/default.less';
 
-.card {
-  margin-bottom: 24px;
 
-  .toolbar {
-    padding-bottom: 24px;
+.content  {
+  padding: 32px 24px;
+  margin: 0 auto;
+  width: 1200px;
+
+  .tablewrapper {
+    background-color: #ffffff;
   }
   
-  .input {
-    width: 240px;
-
-    :global {
-      .ant-input-search-icon::before {
-          border-left: none;
+  .card {
+    margin-bottom: 24px;
+  
+    .toolbar {
+      padding-bottom: 24px;
+    }
+    
+    .input {
+      width: 260px;
+  
+      :global {
+        .ant-input-search-icon::before {
+            border-left: none;
+        }
       }
     }
   }
-}
-
-.section {
-  background-color: #ffffff;
 }
 

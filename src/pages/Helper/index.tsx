@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
 import {
   Carousel,
   Typography,
@@ -17,50 +18,49 @@ interface Props {
 }
 
 const HelperPage: React.FC<Props> = (props) => {
+  const level = 4
   return (
-    <div className={styles.wrapper}>
-      <Carousel>
-        <div className={styles.banner}>
-          <div className={styles.bannertitle}>
-            <h2 className={styles.title}>帮助中心</h2>
-            <p className={styles.subtitle}>Help center</p>
+    <React.Fragment>
+      <Navbar/>
+      <div className={styles.wrapper}>
+        <Carousel>
+          <div className={styles.banner}>
+            <div className={styles.bannertitle}>
+              <h2 className={styles.title}>帮助中心</h2>
+              <p className={styles.subtitle}>Help center</p>
+            </div>
           </div>
+        </Carousel>
+
+        <div className={styles.sort}>
+          <Title level={level}>问题分类</Title>
+          <Card>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+          </Card>
         </div>
-      </Carousel>
 
-      <div className={styles.block}>
-        <Title level={3}>问题分类</Title>
-        <Row gutter={16}>
-          {
-            Array(8).fill(2).map(item => {
-              return (
-                <Col span={6}>
-                  <Card>2</Card>
-                </Col>
-              )
-            })
-          }
-        </Row>
-      </div>
+        <div className={styles.hot}>
+          <Title level={level}>热门问题</Title>
+          <Card>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+            <Card.Grid className={styles.grid} hoverable={false}>Content</Card.Grid>
+          </Card>
+        </div>
 
-      <div className={styles.block}>
-        <Title level={3}>热门问题</Title>
-        <Card>
-          <Card.Grid hoverable={false}>Content</Card.Grid>
-          <Card.Grid>Content</Card.Grid>
-          <Card.Grid>Content</Card.Grid>
-          <Card.Grid>Content</Card.Grid>
-        </Card>
+        <div className={styles.service}>
+          <Title level={level}>联系客服</Title>
+          <Card>
+            <Card.Grid className={styles.grid}>Content</Card.Grid>
+            <Card.Grid className={styles.grid}>Content</Card.Grid>
+          </Card>
+        </div>
       </div>
-
-      <div className={styles.block}>
-        <Title level={3}>联系客服</Title>
-        <Card>
-          <Card.Grid>Content</Card.Grid>
-          <Card.Grid>Content</Card.Grid>
-        </Card>
-      </div>
-    </div>
+    </React.Fragment>
   )
 }
 

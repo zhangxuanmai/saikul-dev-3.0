@@ -1,35 +1,36 @@
-import React, { useEffect } from 'react';
-import { connect, Dispatch } from 'umi';
-import { HomeModelState } from '@/models/home';
-import { ConnectState } from '@/models/connect';
-import Home from './components/HomeLoading';
+import React, { useEffect, useState } from 'react';
+import NavBar from '@/components/Navbar';
+import Landing from './components/Landing';
 import styles from './index.less';
+import { fetchHomeData } from '@/services/home';
 
-interface Props {
-  dispatch: Dispatch;
-  data: HomeModelState;
+interface DataType {
+  currentTime: string;
+  lastMonthTradingVolume: number;
+  totalTaxAmount: number;
+  totalTaxableOrderAmount: number;
+  totalTaxableOrderCount: number;
+  totalTradingAmount: number;
+  totalTradingCount: number;
+  totalTradingVolume: number;
 }
 
-const App: React.FC<Props> = (props) => {
-  const {
-    dispatch,
-    data
-  } = props;
+interface Props { }
+
+const HomePage: React.FC<Props> = (props) => {
+  const [landingData, setLandingData] = useState<DataType[]>([]);
 
   useEffect(() => {
-    if (dispatch) {
-      dispatch({ type: 'home/fetch' });
-    }
-  }, []);
+    fetchHomeData().then(res => setLandingData(res.saikulIndexDataView))
+  }, [])
 
   return (
     <div className={styles.wrapper}>
-      <Home data={data} />
+      <NavBar />
+      <Landing data={landingData} />
     </div>
   )
 }
 
-export default connect(({ home }: ConnectState) => ({
-  data: home,
-}))(App);
+export default HomePage
 

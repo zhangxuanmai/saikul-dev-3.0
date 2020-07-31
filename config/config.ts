@@ -29,18 +29,6 @@ export default defineConfig({
       component: '../layouts/BasicBlankLayout',
       routes: [
         {
-          name: '高级表单',
-          icon: 'smile',
-          path: '/formadvancedform',
-          component: './Examples/FormAdvancedForm',
-        },
-        {
-          name: '搜索列表（项目）',
-          icon: 'smile',
-          path: '/listsearchprojects',
-          component: './Examples/ListSearchProjects',
-        },
-        {
           name: '首页',
           icon: 'smile',
           path: '/',
@@ -95,8 +83,7 @@ export default defineConfig({
   ignoreMomentLocale: true,
   proxy: {
     '/api/': {
-      target: 'https://admin.saikul.com/api',
-      // target: 'http://87k9x6.natappfree.cc/api'
+      target: 'http://10.50.192.37:7777/platform',
       changeOrigin: true,
       pathRewrite: {
         '^/api': '',
