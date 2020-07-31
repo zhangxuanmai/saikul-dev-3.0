@@ -1,0 +1,50 @@
+
+.wrapper {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+
+    .container {
+        margin: 0 auto;
+        padding: 0 24px;
+        max-width: 1200px;
+        height: 80px;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .link {
+            position: relative;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.65);
+        }
+        
+        .link:hover {
+            color: #1890ff;
+        }
+        
+        .logo {
+            display: inline-block;
+            margin-left: 0;
+            width: 180px;
+            text-align: left;
+        }
+        
+        .input {
+            margin-right: 14px !important;
+            width: 200px !important;
+            border-radius: 20px !important;
+
+            :global {
+                .ant-input-search-icon::before {
+                    border-left: none;
+                }
+            }
+        }
+        
+        .icon {
+            color: rgba(0, 0, 0, .45);
+        }
+    }
+    
+}
